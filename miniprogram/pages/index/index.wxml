@@ -1,0 +1,40 @@
+<!--index.wxml-->
+<view class="content-container">
+
+  <view class="section-box">
+    <view class="section-header-box">Location 扫描位置</view>
+    <view class="section-body-box">
+      <picker range="{{locationList}}" value="{{idSelectedLocation}}" range-key="name" bindchange="locationPickerChange">
+        <view class="picker">
+          {{locationList[idSelectedLocation].name}}
+        </view>
+      </picker>
+    </view>
+  </view>
+
+  <view class="section-box">
+    <view class="section-header-box">Recent Scans 最近扫描记录</view>
+    <view class="section-body-box">
+      <view class="mono-text-box">
+        <text>{{recentScannedText}}</text>
+      </view>
+    </view>
+    <text>Count 扫描数: {{scansCount}}</text>
+  </view>
+
+  <view class="section-box">
+    <view class="func-buttons-box">
+      <button size="mini" bindtap="copyLpnDataToClipboard" disabled="{{processDataDisabled}}">C 复制</button>
+      <button size="mini" bindtap="uploadLpnDataToCloud" disabled="{{processDataDisabled}}">U 上传</button>
+      <button type="warn" size="mini" bindtap="clearLpnData" disabled="{{btnClearDataDisabled}}">D 清除</button>
+    </view>
+  </view>
+
+  <view class="section-box">
+    <text>{{warningText}}</text>
+    <view class="major-button-box">
+      <button class="major-button" type="primary" bindtap="scanLpn" disabled="{{btnScanDisabled}}">Scan 扫描</button>
+    </view>
+  </view>
+
+</view>
